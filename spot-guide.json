@@ -118,6 +118,23 @@
             "expert": 1
         }
     },
+        {
+        "name": "English Left",
+        "town": "Arrieta",
+        "location": "29°11'31.18”N 13°25'14.60”W",
+        "description": "Perfect spot for SUP and long board, situated at the outside reef, can be very powerful depending on the tide. Wind prone, attention with the currents",
+        "wind_direction": ["SW", "WSW", "W", "WNW", "NW"],
+        "swell_direction": ["NW", "NNW", "N", "NNE", "NE"],
+        "tide": ["high"],
+        "wave_size": "1-3m",
+        "wave_type": ["left"],
+        "wave_power": ["min", "med"],
+        "surf_level_recommendation": {
+            "beginner": 1,
+            "advanced": 4,
+            "expert": 3
+        }
+    },
     {
         "name": "Barcarola",
         "town": "Puerto del Carmen",
@@ -604,23 +621,6 @@
         "wave_size": "1-2m",
         "wave_type": ["left"],
         "wave_power": ["med", "max"],
-        "surf_level_recommendation": {
-            "beginner": 1,
-            "advanced": 4,
-            "expert": 3
-        }
-    },
-    {
-        "name": "English Left",
-        "town": "Arrieta",
-        "location": "29°11'31.18”N 13°25'14.60”W",
-        "description": "Perfect spot for SUP and long board, situated at the outside reef, can be very powerful depending on the tide. Wind prone, attention with the currents",
-        "wind_direction": ["SW", "WSW", "W", "WNW", "NW"],
-        "swell_direction": ["NW", "NNW", "N", "NNE", "NE"],
-        "tide": ["high"],
-        "wave_size": "1-3m",
-        "wave_type": ["left"],
-        "wave_power": ["min", "med"],
         "surf_level_recommendation": {
             "beginner": 1,
             "advanced": 4,
