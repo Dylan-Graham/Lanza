@@ -50,12 +50,13 @@ def scrape():
 
     # HTML direct mapping to WF :poop-emoji
     day1 = soup.find(id='day4')
-    # day2 = soup.find(id='day5')
+    day2 = soup.find(id='day5')
     # day3 = soup.find(id='day6')
     # day4 = soup.find(id='day7')
     # day5 = soup.find(id='day8')
     days = [
         day1,
+        day2
     ]
 
     if not days:
@@ -68,8 +69,6 @@ def scrape():
         rows = day.select(".fc-table-horizon")
 
         for row in rows:
-            print(f"ROW: {row}")
-
             time_el = row.select_one(".cell-ts")
             time_text = time_el.get_text(strip=True) if time_el else None
 
@@ -100,10 +99,8 @@ def scrape():
             wave_dir = extract_cardinal_direction(wave_dir_svg)
 
             cloud_el = row.select_one(".cell-cl svg title")
-            print(cloud_el)
             cloud_coverage = None
             if cloud_el:
-                print(f"le cloud: {cloud_el}")
                 val = cloud_el.text.replace("%", "")
                 cloud_coverage = safe_float(val)
 
@@ -135,4 +132,5 @@ def scrape():
 
 if __name__ == "__main__":
     data = scrape()
+    # TODO: Save to DB
     print(json.dumps(data, indent=2))
