@@ -23,6 +23,7 @@ python -m venv venv
 
 ## Activate
 venv activation
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Proces
 PS > venv\Scripts\Activate.ps1
 
 ## Install deps
