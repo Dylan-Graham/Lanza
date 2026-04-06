@@ -1,8 +1,9 @@
 import requests
 from bs4 import BeautifulSoup
 import json
-
 import re
+import sqlite3
+from sqlite3 import Connection
 
 URL = "https://www.windfinder.com/forecast/famara"
 
@@ -49,15 +50,7 @@ def scrape():
     results = []
 
     # HTML direct mapping to WF :poop-emoji
-    day1 = soup.find(id='day4')
-    day2 = soup.find(id='day5')
-    # day3 = soup.find(id='day6')
-    # day4 = soup.find(id='day7')
-    # day5 = soup.find(id='day8')
-    days = [
-        day1,
-        day2
-    ]
+    days = soup.find_all(class_="fc-day")[:2]
 
     if not days:
         raise Exception("No forecast days found (structure changed again)")
@@ -114,14 +107,14 @@ def scrape():
 
             entry = {
                 "time": f"{day_text} {time_text}",
-                "wave_height (m)": wave_height,
+                "wave_height": wave_height,
                 "wave_direction": wave_dir,
-                "wave_period (s)": wave_period,
-                "wind_speed (knots)": wind_speed,
+                "wave_period": wave_period,
+                "wind_speed": wind_speed,
                 "wind_gust": wind_gust,
                 "wind_direction": wind_dir,
                 "cloud_coverage": cloud_coverage,
-                "precipitation (mm/hr)": (precipitation / 3.0) if precipitation else 0,
+                "precipitation": (precipitation / 3.0) if precipitation else 0,
                 "air_temperature": temp,
             }
 
@@ -129,8 +122,38 @@ def scrape():
 
     return results
 
+def db_conn() -> Connection:
+    try:
+        with sqlite3.connect("forecast.db") as conn:
+            print(f"Opened SQLite DB with version {sqlite3.version_info}")
+    except sqlite3.OperationalError as e:
+        print(f"Failed to connect to DB: ({e})")
+
+    return conn
+
+def db_insert(conn: Connection, forecasts):
+    sql = """
+        INSERT INTO forecast(time, wave_height, wave_direction, wave_period,
+        wind_speed, wind_gust, wind_direction, cloud_coverage, precipitation, air_temperature)
+        VALUES(?,?,?,?,?,?,?,?,?,?)
+    """
+    
+
+    try:
+        cur = conn.cursor()
+        for forecast in forecasts:
+            data = (forecast["time"], forecast["wave_height"], forecast["wave_direction"], forecast["wave_period"], forecast["wind_speed"], forecast["wind_gust"], forecast["wind_direction"], forecast["cloud_coverage"], forecast["precipitation"], forecast["air_temperature"])
+            cur.execute(sql, data)
+        conn.commit()
+        print("data added...")
+    except sqlite3.Error as e:
+        print(f"Error occurred during db insert: {e}")
+
+    return cur.lastrowid
+    
 
 if __name__ == "__main__":
-    data = scrape()
-    # TODO: Save to DB
-    print(json.dumps(data, indent=2))
+    forecasts = scrape()
+    conn = db_conn()
+    db_insert(conn=conn, forecasts=forecasts)
+    # TODO: Logging
