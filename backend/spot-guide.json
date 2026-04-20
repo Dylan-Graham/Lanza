@@ -1,0 +1,631 @@
+[
+    {
+        "name": "Jameos del Agua",
+        "town": "Haria",
+        "location": "29°09'18.64”N 13°25'43.26”W",
+        "description": "Long and hollow left during surf season. The right at the windsurf section is short and hollow",
+        "wind_directions": ["WNW", "NW", "NNW", "N", "NNE"],
+        "swell_directions": ["WNW", "NW", "NNW", "N", "NNE"],
+        "tides": ["low", "high"],
+        "wave_size": [3,10],
+        "wave_types": ["a-frame", "left"],
+        "wave_power": ["med", "max"],
+        "surf_level_recommendation": {
+            "beginner": 1,
+            "advanced": 5,
+            "expert": 5
+        }
+    },
+    {
+        "name": "El Cartel",
+        "town": "Punta Mujeres",
+        "location": "29°09'07.65”N 13°26'09.10”W",
+        "description": "Left and right hander wave. The right hander is very hollow and breaks over a lava reef",
+        "wind_directions": ["WNW", "NW", "NNW", "N", "NNE"],
+        "swell_directions": ["WNW", "NW", "NNW", "N", "NNE"],
+        "tides": ["high"],
+        "wave_size": [3,10],
+        "wave_types": ["a-frame"],
+        "wave_power": ["med", "max"],
+        "surf_level_recommendation": {
+            "beginner": 1,
+            "advanced": 2,
+            "expert": 5
+        }
+    },
+    {
+        "name": "La Hedionda",
+        "town": "Punta Mujeres",
+        "location": "29°09'00.09”N 13°26'21.56”W",
+        "description": "Left hander wave, long and hollow, breaks over a lava reef",
+        "wind_directions": ["WNW", "NW", "NNW", "N", "NNE"],
+        "swell_directions": ["WNW", "NW", "NNW", "N", "NNE"],
+        "tides": ["low"],
+        "wave_size": [3,10],
+        "wave_types": ["left"],
+        "wave_power": ["med", "max"],
+        "surf_level_recommendation": {
+            "beginner": 1,
+            "advanced": 5,
+            "expert": 5
+        }
+    },
+    {
+        "name": "El Espino",
+        "town": "Punta Mujeres",
+        "location": "29°08'21.06”N 13°27'14.22”W",
+        "description": "One of the favourite wave spots of the locals. The wave is short, hollow and crystal clear - a present of nature",
+        "wind_directions": ["WNW", "NW", "NNW", "N", "NNE"],
+        "swell_directions": ["WNW", "NW", "NNW", "N", "NNE"],
+        "tides": ["high"],
+        "wave_size": [3,10],
+        "wave_types": ["a-frame"],
+        "wave_power": ["max"],
+        "surf_level_recommendation": {
+            "beginner": 1,
+            "advanced": 2,
+            "expert": 5
+        }
+    },
+    {
+        "name": "La Derecha del Lago",
+        "town": "Punta Mujeres",
+        "location": "29°08'53.78”N 13°26'34.22”W",
+        "description": "Quick and hollow wave, very dry tube",
+        "wind_directions": ["WNW", "NW", "N", "NNW", "NNE"],
+        "swell_directions": ["WNW", "NW", "N", "NNW", "NNE"],
+        "tides": ["high"],
+        "wave_size": [3,10],
+        "wave_types": ["right"],
+        "wave_power": ["max"],
+        "surf_level_recommendation": {
+            "beginner": 1,
+            "advanced": 3,
+            "expert": 5
+        }
+    },
+    {
+        "name": "La Casa China",
+        "town": "Arrieta",
+        "location": "29°07'55.95”N 13°27'34.59”W",
+        "description": "A soft wave for playing, but don't forget the lava ground",
+        "wind_directions": ["SSW", "SW", "WSW", "W", "WNW"],
+        "swell_directions": ["WNW", "NW", "NNW", "N", "NNE"],
+        "tides": ["high"],
+        "wave_size": [3,10],
+        "wave_types": ["left"],
+        "wave_power": ["min", "med"],
+        "surf_level_recommendation": {
+            "beginner": 2,
+            "advanced": 4,
+            "expert": 2
+        }
+    },
+    {
+        "name": "La Garita",
+        "town": "Arrieta",
+        "location": "29°07'41.65”N 13°27'52.30”W",
+        "description": "Wave on sandy bottom, in some sections soft and others you find tubes",
+        "wind_directions": ["WNW", "NW", "NNW", "N", "NNE", "NE", "ENE"],
+        "swell_directions": ["NNW", "N", "NNE", "NE", "ENE", "E", "ESE"],
+        "tides": ["low", "high"],
+        "wave_size": [1,3],
+        "wave_types": ["a-frame"],
+        "wave_power": ["min", "med"],
+        "surf_level_recommendation": {
+            "beginner": 4,
+            "advanced": 3,
+            "expert": 1
+        }
+    },
+        {
+        "name": "English Left",
+        "town": "Arrieta",
+        "location": "29°11'31.18”N 13°25'14.60”W",
+        "description": "Perfect spot for SUP and long board, situated at the outside reef, can be very powerful depending on the tide. Wind prone, attention with the currents",
+        "wind_directions": ["SW", "WSW", "W", "WNW", "NW"],
+        "swell_directions": ["NW", "NNW", "N", "NNE", "NE"],
+        "tides": ["high"],
+        "wave_size": [1,3],
+        "wave_types": ["left"],
+        "wave_power": ["min", "med"],
+        "surf_level_recommendation": {
+            "beginner": 1,
+            "advanced": 4,
+            "expert": 3
+        }
+    },
+    {
+        "name": "Barcarola",
+        "town": "Puerto del Carmen",
+        "location": "28°55'10.41”N 13°38'47.77”W",
+        "description": "Short radical wave. Comes up at low tide and only when the other spots of the island are huge",
+        "wind_directions": ["SSW", "SW", "WSW", "W", "WNW"],
+        "swell_directions": ["WNW", "NW", "NNW", "N", "NNE"],
+        "tides": ["high"],
+        "wave_size": [3,10],
+        "wave_types": ["a-frame"],
+        "wave_power": ["med"],
+        "surf_level_recommendation": {
+            "beginner": 1,
+            "advanced": 4,
+            "expert": 2
+        }
+    },
+    {
+        "name": "La Izquierda de Las Cucharas",
+        "town": "Costa Teguise",
+        "location": "28°59'58.86”N 13°28'58.05”W",
+        "description": "A nice beach break, working with wind from NE, perfect for SUP sessions",
+        "wind_directions": ["WNW", "NW", "NNW", "N", "NNE", "NE", "ENE"],
+        "swell_directions": ["NNE", "NE", "ENE"],
+        "tides": ["high"],
+        "wave_size": [2,10],
+        "wave_types": ["left"],
+        "wave_power": ["med"],
+        "surf_level_recommendation": {
+            "beginner": 5,
+            "advanced": 4,
+            "expert": 1
+        }
+    },
+    {
+        "name": "Playa de Los Charcos",
+        "town": "Costa Teguise",
+        "location": "29°00'05.72”N 13°28'57.23”W",
+        "description": "Classic windsurf spot, but once the wind drops, great for SUP",
+        "wind_directions": ["NNW", "N", "NNE", "NE"],
+        "swell_directions": ["NNE", "NE", "ENE"],
+        "tides": ["high"],
+        "wave_size": [1,10],
+        "wave_types": ["left"],
+        "wave_power": ["med"],
+        "surf_level_recommendation": {
+            "beginner": 1,
+            "advanced": 1,
+            "expert": 1
+        }
+    },
+    {
+        "name": "La Izquierda del Volcán",
+        "town": "Playa Blanca",
+        "location": "28°51'24.74”N 13°48'38.43”W",
+        "description": "Short tube wave with a changing take off point",
+        "wind_directions": ["WNW", "NW", "NNW", "N", "NNE"],
+        "swell_directions": ["WNW", "W", "WSW", "SW", "SSW"],
+        "tides": ["high"],
+        "wave_size": [3,10],
+        "wave_types": ["left"],
+        "wave_power": ["med", "max"],
+        "surf_level_recommendation": {
+            "beginner": 1,
+            "advanced": 2,
+            "expert": 4
+        }
+    },
+    {
+        "name": "La Derecha del Faro",
+        "town": "Playa Blanca",
+        "location": "28°51'19.93”N 13°52'21.71”W",
+        "description": "Short tube wave which breaks in shallow water over lava bed",
+        "wind_directions": ["WNW", "NW", "NNW", "N", "NNE", "NE", "ENE"],
+        "swell_directions": ["SSW", "SW", "WSW", "W", "WNW"],
+        "tides": ["low"],
+        "wave_size": [3,10],
+        "wave_types": ["right"],
+        "wave_power": ["med", "max"],
+        "surf_level_recommendation": {
+            "beginner": 1,
+            "advanced": 2,
+            "expert": 4
+        }
+    },
+        {
+        "name": "El Golfo",
+        "town": "Yaiza",
+        "location": "28°57'37.53”N 13°49'49.29”W",
+        "description": "High quality wave but only rarely surfable. Be careful with the rocks in the middle",
+        "wind_directions": ["NNE", "NE", "ENE", "E", "ESE", "SE", "SSE"],
+        "swell_directions": ["WSW", "W", "WNW", "NW", "NNW", "N", "NNE"],
+        "tides": ["low"],
+        "wave_size": [2,10],
+        "wave_types": ["right"],
+        "wave_power": ["med", "max"],
+        "surf_level_recommendation": {
+            "beginner": 1,
+            "advanced": 2,
+            "expert": 3
+        }
+    },
+    {
+        "name": "El Quemao",
+        "town": "La Santa",
+        "location": "29°06'35.19”N 13°39'53.26”W",
+        "description": "Mystic spot called 'pipe canario', a worldwide reference for big tube surfing",
+        "wind_directions": ["ENE", "E", "ESE", "SE", "SSE", "S"],
+        "swell_directions": ["WSW", "W", "WNW", "NW", "NNW"],
+        "tides": ["high"],
+        "wave_size": [1,4],
+        "wave_types": ["a-frame"],
+        "wave_power": ["max"],
+        "surf_level_recommendation": {
+            "beginner": 1,
+            "advanced": 1,
+            "expert": 5
+        }
+    },
+    {
+        "name": "La Izquierda de La Santa",
+        "town": "La Santa",
+        "location": "29°07'02.36”N 13°33'51.12”W",
+        "description": "Left hander wave, a hollow tube, also breaks to the right; the locals' favourite",
+        "wind_directions": ["NNE", "NE", "ENE", "E", "ESE", "SE", "SSE"],
+        "swell_directions": ["WNW", "NW", "NNW", "N", "NNE"],
+        "tides": ["high"],
+        "wave_size": [1,3],
+        "wave_types": ["a-frame"],
+        "wave_power": ["max"],
+        "surf_level_recommendation": {
+            "beginner": 1,
+            "advanced": 1,
+            "expert": 5
+        }
+    },
+    {
+        "name": "La Derecha de La Santa",
+        "town": "La Santa",
+        "location": "29°06'45.13”N 13°39'40.85”W",
+        "description": "Classic wave spot of Lanzarote with long right hander wave. On the best days the wave can reach 300m long",
+        "wind_directions": ["NNE", "NE", "ENE", "E", "ESE", "SE", "SSE"],
+        "swell_directions": ["WSW", "W", "WNW", "NW", "NNW"],
+        "tides": ["low", "high"],
+        "wave_size": [1,5],
+        "wave_types": ["right"],
+        "wave_power": ["med", "max"],
+        "surf_level_recommendation": {
+            "beginner": 1,
+            "advanced": 3,
+            "expert": 4
+        }
+    },
+    {
+        "name": "El Barranquillo Seco",
+        "town": "La Santa",
+        "location": "29°06'32.38”N 13°40'07.43”W",
+        "description": "Excellent quality wave and a good alternative to the mystic spot El Quemao when overcrowded",
+        "wind_directions": ["ENE", "E", "ESE", "SE", "SSE", "S"],
+        "swell_directions": ["WSW", "W", "WNW", "NW"],
+        "tides": ["high"],
+        "wave_size": [1,2],
+        "wave_types": ["a-frame"],
+        "wave_power": ["med", "max"],
+        "surf_level_recommendation": {
+            "beginner": 1,
+            "advanced": 2,
+            "expert": 4
+        }
+    },
+    {
+        "name": "El Centro de La Santa",
+        "town": "La Santa",
+        "location": "29°06'45.13”N 13°39'40.85”W",
+        "description": "La Santa's easier wave, but both entering and leaving the water is complicated",
+        "wind_directions": ["NNE", "NE", "ENE", "E", "ESE", "SE", "SSE"],
+        "swell_directions": ["WSW", "W", "WNW", "NW", "NNW", "N", "NNE", "NE", "ENE"],
+        "tides": ["high"],
+        "wave_size": [1,4],
+        "wave_types": ["left"],
+        "wave_power": ["min", "med"],
+        "surf_level_recommendation": {
+            "beginner": 2,
+            "advanced": 4,
+            "expert": 1
+        }
+    },
+    {
+        "name": "El Complejo",
+        "town": "La Santa",
+        "location": "29°07'19.27”N 13°39'13.15”W",
+        "description": "Not much frequented wave, but with high quality waves",
+        "wind_directions": ["ESE", "SE", "SSE", "S", "SSW", "SW", "WSW"],
+        "swell_directions": ["WSW", "W", "WNW", "NW", "NNW", "N", "NNE"],
+        "tides": ["high"],
+        "wave_size": [1,5],
+        "wave_types": ["left"],
+        "wave_power": ["med", "max"],
+        "surf_level_recommendation": {
+            "beginner": 1,
+            "advanced": 4,
+            "expert": 3
+        }
+    },
+    {
+        "name": "La Izquierda de Caleta Caballo",
+        "town": "Caleta Caballo",
+        "location": "29°07'19.27”N 13°39'13.15”W",
+        "description": "This wave is softer than the others, but look out for the lava break",
+        "wind_directions": ["ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW"],
+        "swell_directions": ["NW", "NNW", "N", "NNE", "NE"],
+        "tides": ["high"],
+        "wave_size": [1,2],
+        "wave_types": ["left"],
+        "wave_power": ["med"],
+        "surf_level_recommendation": {
+            "beginner": 1,
+            "advanced": 4,
+            "expert": 3
+        }
+    },
+    {
+        "name": "La Derecha de Caleta Caballo",
+        "town": "Caleta Caballo",
+        "location": "29°07'19.27”N 13°39'13.15”W",
+        "description": "Big right hander wave, big tubes just in front of the rocks. Mostly frequented by the local surfers",
+        "wind_directions": ["ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW"],
+        "swell_directions": ["WNW", "NW", "NNW", "N", "NNE"],
+        "tides": ["low"],
+        "wave_size": [1,6],
+        "wave_types": ["right"],
+        "wave_power": ["med", "max"],
+        "surf_level_recommendation": {
+            "beginner": 2,
+            "advanced": 4,
+            "expert": 5
+        }
+    },
+    {
+        "name": "San Juan",
+        "town": "Famara",
+        "location": "29°07'32.20”N 13°34'29.34”W",
+        "description": "One of the best spots on the island and surfing Worlds venue, mystic left hander waves with long tubes",
+        "wind_directions": ["ESE", "SE", "SSE", "S", "SSW", "SW", "WSW"],
+        "swell_directions": ["WNW", "NW", "NNW", "N", "NNE", "NE", "ENE"],
+        "tides": ["low", "high"],
+        "wave_size": [1,4],
+        "wave_types": ["left"],
+        "wave_power": ["med", "max"],
+        "surf_level_recommendation": {
+            "beginner": 1,
+            "advanced": 4,
+            "expert": 5
+        }
+    },
+    {
+        "name": "El Perejil",
+        "town": "Famara",
+        "location": "29°07'59.30”N 13°31'55.19”W",
+        "description": "The second peak of San Juan with less surfers and a more accessible wave",
+        "wind_directions": ["ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW"],
+        "swell_directions": ["WNW", "NW", "NNW", "N", "NNE"],
+        "tides": ["high"],
+        "wave_size": [1,4],
+        "wave_types": ["left"],
+        "wave_power": ["med", "max"],
+        "surf_level_recommendation": {
+            "beginner": 1,
+            "advanced": 3,
+            "expert": 4
+        }
+    },
+    {
+        "name": "El Cagao",
+        "town": "Famara",
+        "location": "29°07'20.47”N 13°34'09.81”W",
+        "description": "Short and hollow wave, mostly surfed by kids and islander bodyboarders",
+        "wind_directions": ["ESE", "SE", "SSE", "S", "SSW", "SW", "WSW"],
+        "swell_directions": ["WNW", "NW", "NNW", "N", "NNE"],
+        "tides": ["low"],
+        "wave_size": [2,10],
+        "wave_types": ["a-frame"],
+        "wave_power": ["max"],
+        "surf_level_recommendation": {
+            "beginner": 1,
+            "advanced": 1,
+            "expert": 2
+        }
+    },
+    {
+        "name": "El Muelle de Famara",
+        "town": "Famara",
+        "location": "29°07'12.32”N 13°33'56.66”W",
+        "description": "Worldwide renowned tube wave. A spot on days with extreme conditions. A lot of locals",
+        "wind_directions": ["ESE", "SE", "SSE", "S", "SSW", "SW", "WSW"],
+        "swell_directions": ["WNW", "NW", "NNW", "N", "NNE", "NE", "ENE"],
+        "tides": ["high"],
+        "wave_size": [2,10],
+        "wave_types": ["left"],
+        "wave_power": ["max"],
+        "surf_level_recommendation": {
+            "beginner": 1,
+            "advanced": 1,
+            "expert": 5
+        }
+    },
+    {
+        "name": "La Derecha del Barco",
+        "town": "Famara",
+        "location": "29°07'11.93”N 13°33'49.63”W",
+        "description": "Nice wave breaking over the outside reef. Highly recommendable for SUP surfing. Easy access from fishers pier",
+        "wind_directions": ["ESE", "SE", "SSE", "S", "SSW", "SW", "WSW"],
+        "swell_directions": ["WNW", "NW", "NNW", "N", "NNE"],
+        "tides": ["low", "high"],
+        "wave_size": [2,6],
+        "wave_types": ["right"],
+        "wave_power": ["min", "med"],
+        "surf_level_recommendation": {
+            "beginner": 1,
+            "advanced": 2,
+            "expert": 3
+        }
+    },
+    {
+        "name": "Playa de Famara",
+        "town": "Famara",
+        "location": "29°07'08.90”N 13°32'47.59”W",
+        "description": "Fantastic beach at the bottom of the cliffs of Famara, excellent for beginners and good level surfers. Rolling sand banks and sometimes strong currents",
+        "wind_directions": ["ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW"],
+        "swell_directions": ["WSW", "W", "WNW", "NW", "NNW", "N", "NNE", "NE", "ENE"],
+        "tides": ["low", "high"],
+        "wave_size": [1,3],
+        "wave_types": ["a-frame"],
+        "wave_power": ["min", "med"],
+        "surf_level_recommendation": {
+            "beginner": 5,
+            "advanced": 5,
+            "expert": 4
+        }
+    },
+    {
+        "name": "El Papelillo",
+        "town": "Famara",
+        "location": "29°07'59.30”N 13°31'55.19”W",
+        "description": "On good days another top spot of Lanzarote, a fantastic wave at the end of the beach at the bottom of the cliffs. Incredible panorama",
+        "wind_directions": ["NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW"],
+        "swell_directions": ["WSW", "W", "WNW", "NW", "NNW"],
+        "tides": ["low"],
+        "wave_size": [1,3],
+        "wave_types": ["a-frame"],
+        "wave_power": ["med", "max"],
+        "surf_level_recommendation": {
+            "beginner": 1,
+            "advanced": 4,
+            "expert": 5
+        }
+    },
+    {
+        "name": "Las Bajas",
+        "town": "Famara",
+        "location": "29°07'59.30”N 13°31'55.19”W",
+        "description": "100% Tow in. Outside reef in front of Playa de Famara",
+         "wind_directions": ["ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW"],
+        "swell_directions": ["WSW", "W", "WNW", "NW", "NNW", "N", "NNE", "NE", "ENE"],
+        "tides": ["low", "high"],
+        "wave_size": [5,15],
+        "wave_types": ["a-frame"],
+        "wave_power": ["max"],
+        "surf_level_recommendation": {
+            "beginner": 1,
+            "advanced": 1,
+            "expert": 5
+        }
+    },
+    {
+        "name": "El Mirador de Guinate",
+        "town": "Famara",
+        "location": "29°11'38.46”N 13°30'38.81”W",
+        "description": "The biggest wave on the whole island. Watch out - looking down the wave looks smaller. Difficult access, climb down cliffs or go by boat",
+        "wind_directions": ["SSW", "SW", "WSW", "W", "WNW"],
+        "swell_directions": ["WNW", "NW", "NNW", "N", "NNW"],
+        "tides": ["high"],
+        "wave_size": [3,10],
+        "wave_types": ["right"],
+        "wave_power": ["max"],
+        "surf_level_recommendation": {
+            "beginner": 2,
+            "advanced": 4,
+            "expert": 5
+        }
+    },
+    {
+        "name": "El Pipelanito",
+        "town": "Famara",
+        "location": "29°12'16.09”N 13°30'12.24”W",
+        "description": "The Pipeline of Lanzarote. Excellent tube wave, not many surfers. High quality. Difficult access - climb down cliffs from Famara or go by boat",
+        "wind_directions": ["E", "ESE", "SE", "SSE", "S"],
+        "swell_directions": ["W", "WNW", "NW"],
+        "tides": ["high"],
+        "wave_size": [3,10],
+        "wave_types": ["left"],
+        "wave_power": ["max"],
+        "surf_level_recommendation": {
+            "beginner": 1,
+            "advanced": 1,
+            "expert": 5
+        }
+    },
+    {
+        "name": "Playa del Corral",
+        "town": "La Graciosa",
+        "location": "29°15'07.46”N 13°31'41.61”W",
+        "description": "Not very frequented wave on the island La Graciosa, long left hander wave with two tube sections: a lot of fun",
+        "wind_directions": ["E", "ESE", "SE", "SSE", "S"],
+        "swell_directions": ["W", "WNW", "NW", "NNW", "N"],
+        "tides": ["low"],
+        "wave_size": [1,3],
+        "wave_types": ["left"],
+        "wave_power": ["max"],
+        "surf_level_recommendation": {
+            "beginner": 1,
+            "advanced": 1,
+            "expert": 5
+        }
+    },
+    {
+        "name": "Playa de Atrás",
+        "town": "Orzola",
+        "location": "29°13'29.04”N 13°27'40.79”W",
+        "description": "Sand beach at the north of the island, several peaks with fun waves, not many people",
+        "wind_directions": ["E", "ESE", "SE", "SSE", "S"],
+        "swell_directions": ["W", "WNW", "NW", "NNW", "N", "NNE", "NE"],
+        "tides": ["high"],
+        "wave_size": [1,2],
+        "wave_types": ["a-frame"],
+        "wave_power": ["min", "med"],
+        "surf_level_recommendation": {
+            "beginner": 5,
+            "advanced": 5,
+            "expert": 3
+        }
+    },
+    {
+        "name": "Caletón Blanco",
+        "town": "Orzola",
+        "location": "29°13'00.25”N 13°26'32.26”W",
+        "description": "Wave breaks over an outside reef of volcanic rocks, powerful tubes",
+        "wind_directions": ["E", "ESE", "SE", "SSE", "S"],
+        "swell_directions": ["WNW", "NW", "NNW", "N", "NNE"],
+        "tides": ["high"],
+        "wave_size": [1,6],
+        "wave_types": ["right"],
+        "wave_power": ["med", "max"],
+        "surf_level_recommendation": {
+            "beginner": 1,
+            "advanced": 1,
+            "expert": 5
+        }
+    },
+    {
+        "name": "Caletón del Mero",
+        "town": "Orzola",
+        "location": "29°13'22.34”N 13°26'41.13”W",
+        "description": "One of the 3 biggest waves on the island. Excellent wave, but careful with the volcanic reef",
+        "wind_directions": ["SW", "WSW", "W", "WNW", "NW"],
+        "swell_directions": ["WNW", "NW", "NNW", "N", "NNE"],
+        "tides": ["high"],
+        "wave_size": [1,10],
+        "wave_types": ["a-frame"],
+        "wave_power": ["max"],
+        "surf_level_recommendation": {
+            "beginner": 1,
+            "advanced": 1,
+            "expert": 5
+        }
+    },
+    {
+        "name": "Pico Luna",
+        "town": "Arrieta",
+        "location": "29°07'55.54”N 13°27'30.23”W",
+        "description": "Very good wave for body boarders, a tube at the edge of the reef",
+        "wind_directions": ["SSW", "SW", "WSW", "W", "WNW"],
+        "swell_directions": ["NW", "NNW", "N"],
+        "tides": ["high"],
+        "wave_size": [1,2],
+        "wave_types": ["left"],
+        "wave_power": ["med", "max"],
+        "surf_level_recommendation": {
+            "beginner": 1,
+            "advanced": 4,
+            "expert": 3
+        }
+    }
+]

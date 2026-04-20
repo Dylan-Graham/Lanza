@@ -13,8 +13,3 @@ class Forecast(BaseModel):
     cloud_coverage: Optional[str]
     precipitation: str
     air_temperature: str
-
-class SpotRating(BaseModel):
-    spot: str
-    rating: float
-    reasons: list[str]
