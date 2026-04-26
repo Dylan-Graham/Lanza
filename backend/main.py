@@ -1,10 +1,12 @@
 from fastapi import FastAPI
 import sqlite3
 
-from backend.dto import Forecast, SpotRating
-from backend.util import ratings
+from backend.dto import Forecast, ForecastRating
+from backend.util import ratings, load_spot_guide
 
 app = FastAPI()
+
+spots = load_spot_guide()
 
 @app.get("/forecasts", response_model=list[Forecast])
 async def list_forecasts():
@@ -24,7 +26,7 @@ async def list_forecasts():
 
     return forecasts
 
-@app.get("/ratings", response_model=list[SpotRating])
+@app.get("/ratings", response_model=list[ForecastRating])
 async def list_ratings():
     try:
         with sqlite3.connect("../data-ingestion/forecast.db") as conn:
@@ -37,8 +39,7 @@ async def list_ratings():
             rows = cur.fetchall()
 
             forecasts =[Forecast(**dict(row)) for row in rows]
-            # TODO: Pass forecast to ratings
-            spot_ratings = ratings()
+            spot_ratings = ratings(forecasts=forecasts, spots=spots)
     except sqlite3.OperationalError as e:
         print(f"Error fetching data: ({e})")
 

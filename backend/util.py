@@ -1,7 +1,7 @@
 import json
 from pydantic import BaseModel
 
-from backend.dto import Forecast, SpotRating
+from backend.dto import Forecast, SpotRating, ForecastRating
 
 class SurfLevelRecommendation(BaseModel):
     beginner: int
@@ -46,6 +46,17 @@ class Score(BaseModel):
     rating: float
     reason: str
 
+def load_spot_guide():
+    spots: list[Spot] = []
+
+    with open("spot-guide.json", "r", encoding="utf8") as jsonfile: 
+        data = json.load(jsonfile)
+        for d in data:
+            spots.append(
+            Spot(**d) 
+            )
+
+    return spots
 
 def wind_direction_score(wind_direction: str, spot_wind_direction: list[str]) -> Score:
     match = wind_direction in spot_wind_direction
@@ -96,7 +107,7 @@ def wave_height_score(wave_height: float, spot_wave_size: list[int]) -> Score:
     return Score(rating=0, reason="Poor wave size")
 
 
-def wave_period_score(wave_period: int) -> Score:
+def wave_period_score(wave_period: float) -> Score:
     if wave_period < 0:
         raise ValueError("Wave period must be positive!")
     if wave_period > 12:
@@ -108,7 +119,7 @@ def wave_period_score(wave_period: int) -> Score:
     return Score(rating=0, reason="Poor wave period")
 
 
-def wind_speed_score(wind_speed: int) -> Score:
+def wind_speed_score(wind_speed: float) -> Score:
     if wind_speed < 0:
         raise ValueError("Wind speed must be positive!")
     if wind_speed > 10:
@@ -123,8 +134,8 @@ def rate_spot(forecast: Forecast, spot: Spot) -> dict[float, list[str]]:
     wind_dir = wind_direction_score(forecast.wind_direction, spot.wind_directions)
     wave_dir = wave_direction_score(forecast.wave_direction, spot.swell_directions)
     wave_hgt = wave_height_score(float(forecast.wave_height), spot.wave_size)
-    wave_prd = wave_period_score(int(forecast.wave_period))
-    wind_spd = wind_speed_score(int(forecast.wind_speed))
+    wave_prd = wave_period_score(float(forecast.wave_period))
+    wind_spd = wind_speed_score(float(forecast.wind_speed))
 
     rating = (
         wind_dir.rating
@@ -146,35 +157,22 @@ def rate_spot(forecast: Forecast, spot: Spot) -> dict[float, list[str]]:
 
     } 
 
-forecast = Forecast(
-    time="",
-    wave_height="0.9",
-    wave_direction="WNW",
-    wave_period="9",
-    wind_speed="13",
-    wind_gust="14",
-    wind_direction="WSW",
-    cloud_coverage=None,
-    precipitation="",
-    air_temperature="19"
-)
 
-def ratings() -> list[SpotRating]:
-    ratings: list[SpotRating] = []
-    
-    # Move to run once at start-up
-    spots: list[Spot] = []
-    with open("spot-guide.json", "r", encoding="utf8") as jsonfile: 
-        data = json.load(jsonfile)
-        for d in data:
-            spots.append(
-            Spot(**d) 
+def ratings(forecasts: list[Forecast], spots: list[Spot]) -> list[ForecastRating]:    
+    forecast_ratings: list[ForecastRating] = []
+
+    for forecast in forecasts:
+        spot_ratings: list[SpotRating] = []
+        for spot in spots:
+            spot_rating = rate_spot(forecast=forecast, spot=spot)
+            spot_ratings.append(
+                SpotRating(spot=spot.name, rating=spot_rating["rating"], reasons=spot_rating["reasons"])
             )
-
-    for spot in spots:
-        spot_rating = rate_spot(forecast=forecast, spot=spot)
-        ratings.append(
-            SpotRating(spot=spot.name, rating=spot_rating["rating"], reasons=spot_rating["reasons"])
+        forecast_ratings.append(
+            ForecastRating(
+                time=forecast.time,
+                spot_ratings=spot_ratings
+            )
         )
 
-    return ratings
+    return forecast_ratings

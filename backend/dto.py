@@ -18,3 +18,7 @@ class SpotRating(BaseModel):
     spot: str
     rating: float
     reasons: list[str]
+
+class ForecastRating(BaseModel):
+    time: str
+    spot_ratings: list[SpotRating]
