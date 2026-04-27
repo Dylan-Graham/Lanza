@@ -1,0 +1,35 @@
+.hero {
+  position: relative; /* This is the "anchor" for absolute children */
+  width: 100%;
+  display: inline-block;
+}
+
+.base-image {
+  width: 100%;
+  display: block;
+}
+
+.overlay-star {
+  position: absolute;
+  top: 30%;
+  right: 50%;
+  width: 100px;
+  border-radius: 100px;   
+  z-index: 10;
+}
+
+@keyframes growAndShrink {
+  0% {
+    transform: scale(1); /* Original size */
+  }
+  50% {
+    transform: scale(1.1); /* Grows by 10% */
+  }
+  100% {
+    transform: scale(1); /* Returns to original */
+  }
+}
+
+.pulsing-image {
+  animation: growAndShrink 2s ease-in-out infinite;
+}
