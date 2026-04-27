@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-import json
+from datetime import datetime
 import re
 import sqlite3
 from sqlite3 import Connection
@@ -24,11 +24,11 @@ def degrees_to_cardinal(degrees):
     
     return directions[index]
 
-def extract_cardinal_direction(svg_element):
-    if not svg_element:
+def extract_cardinal_direction(img_element):
+    if not img_element:
         return None
     
-    style = svg_element.get('style', '')
+    style = img_element.get('style', '')
     match = re.search(r'rotate\(([\d.]+)deg\)', style)
     
     if not match:
@@ -75,8 +75,8 @@ def scrape():
                 if row.select_one(".cell-wg .unit") else None
             )
 
-            wind_dir_svg = row.select_one(".cell-wd svg")
-            wind_dir = extract_cardinal_direction(wind_dir_svg)
+            wind_dir_img = row.select_one(".cell-wd img")
+            wind_dir = extract_cardinal_direction(wind_dir_img)
 
             wave_height = safe_float(
                 row.select_one(".cell-wh").text
@@ -88,8 +88,8 @@ def scrape():
                 if row.select_one(".cell-wp") else None
             )
 
-            wave_dir_svg = row.select_one(".cell-waves-wrapper .cell-wd svg")
-            wave_dir = extract_cardinal_direction(wave_dir_svg)
+            wave_dir_img = row.select_one(".cell-waves-wrapper .cell-wd img")
+            wave_dir = extract_cardinal_direction(wave_dir_img)
 
             cloud_el = row.select_one(".cell-cl svg title")
             cloud_coverage = None
@@ -131,6 +131,20 @@ def db_conn() -> Connection:
 
     return conn
 
+def db_clear(conn: Connection):
+    sql = """
+        DELETE FROM forecast;
+    """
+
+    try:
+        cur = conn.cursor()
+        cur.execute(sql)
+        conn.commit()
+        print(f"{datetime.now()}, Database table cleared.")
+    except sqlite3.Error as e:
+        print(f"Error occurred during db delete: {e}")
+
+
 def db_insert(conn: Connection, forecasts):
     sql = """
         INSERT INTO forecast(time, wave_height, wave_direction, wave_period,
@@ -145,7 +159,7 @@ def db_insert(conn: Connection, forecasts):
             data = (forecast["time"], forecast["wave_height"], forecast["wave_direction"], forecast["wave_period"], forecast["wind_speed"], forecast["wind_gust"], forecast["wind_direction"], forecast["cloud_coverage"], forecast["precipitation"], forecast["air_temperature"])
             cur.execute(sql, data)
         conn.commit()
-        print("data added...")
+        print(f"{datetime.now()}, Forecasts inserted...")
     except sqlite3.Error as e:
         print(f"Error occurred during db insert: {e}")
 
@@ -155,5 +169,6 @@ def db_insert(conn: Connection, forecasts):
 if __name__ == "__main__":
     forecasts = scrape()
     conn = db_conn()
+    db_clear(conn=conn)
     db_insert(conn=conn, forecasts=forecasts)
     # TODO: Logging
