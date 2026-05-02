@@ -1,0 +1,22 @@
+@keyframes growAndShrink {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.pulsing-image {
+  animation: growAndShrink 2s ease-in-out infinite;
+}
+
+.circle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
