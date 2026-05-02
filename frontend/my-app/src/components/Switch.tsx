@@ -7,13 +7,17 @@ interface SwitchProps {
 
 export function Switch({ isOn, handleToggle }: SwitchProps) {
     return (
-        <label className="switch">
-            <input 
-                type="checkbox" 
-                checked={isOn} 
-                onChange={handleToggle} 
-            />
-            <span className="slider round" />
-        </label>
+        <div className="switch-container">
+            <label className="switch">
+                <input
+                    type="checkbox"
+                    checked={isOn}
+                    onChange={handleToggle}
+                />
+                <span className="slider round">
+                    <div className="slider-thumb"></div>
+                </span>
+            </label>
+        </div>
     );
 }
