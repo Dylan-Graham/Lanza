@@ -1,36 +1,6 @@
-// import { spots } from "../spots";
-
-// interface CardProps {
-//     spot: string;
-//     rating: number;
-//     reasons: string[];
-// }
-
-// function Card({ spot, rating, reasons }: CardProps) {
-//     return <>
-//         <h2>{spot}</h2>
-//         <h2>{rating}</h2>
-//         <h2>{reasons}</h2>
-//     </>
-// }
-
-// export function TableView() {
-//     const local = spots[0].spot_ratings.slice(14, 32);
-
-//     return <>
-//         <h1>Spots:</h1>
-//         {
-//             local.map((spot) => (
-//                 <div>
-//                     < Card spot={spot.spot} rating={spot.rating} reasons={spot.reasons} />
-//                 </div>
-//             ))
-//         }
-//     </>
-// }
-
 import './TableView.css';
 import { spots } from "../spots";
+import { useState } from 'react';
 
 import star1 from '../assets/1-star.png';
 import star2 from '../assets/2-star.png';
@@ -46,34 +16,79 @@ const starImages: Record<number, string> = {
     5: star5,
 };
 
+
 export function TableView() {
-    const local = spots[0].spot_ratings.slice(14, 32);
+    const [sortOrder, setSortOrder] = useState<'asc' | 'desc' | 'none'>('none');
+    const [selectedRatings, setSelectedRatings] = useState<number[]>([]);
+
+    const rawData = spots[0].spot_ratings.slice(14, 32);
+
+    const handleFilterChange = (rating: number) => {
+        setSelectedRatings(prev =>
+            prev.includes(rating)
+                ? prev.filter(r => r !== rating)
+                : [...prev, rating]
+        );
+    };
+
+    const filteredData = rawData.filter(spot => {
+        if (selectedRatings.length === 0) return true;
+        const rounded = Math.min(5, Math.max(1, Math.round(spot.rating)));
+        return selectedRatings.includes(rounded);
+    });
+
+    const sortedData = [...filteredData].sort((a, b) => {
+        if (sortOrder === 'asc') return a.rating - b.rating;
+        if (sortOrder === 'desc') return b.rating - a.rating;
+        return 0;
+    });
 
     return (
-        <div className="card-container">
-            {local.map((spot, index) => {
-                const safeRating = Math.min(5, Math.max(1, Math.round(spot.rating)));
-                
-                return (
-                    <div className="spot-card" key={index}>
-                        <h2 className="spot-title">{spot.spot}</h2>
-                        
-                        <div className="image-container">
-                            <img 
-                                src={starImages[safeRating]} 
-                                alt={`${safeRating} stars`} 
-                                className="rating-image"
+        <div className="view-wrapper">
+            <div className="controls">
+                <div className="filter-group">
+                    {[1, 2, 3, 4, 5].map(num => (
+                        <label key={num} className={`filter-label ${selectedRatings.includes(num) ? 'active' : ''}`}>
+                            <input
+                                type="checkbox"
+                                checked={selectedRatings.includes(num)}
+                                onChange={() => handleFilterChange(num)}
                             />
-                        </div>
+                            {num} ★
+                        </label>
+                    ))}
+                </div>
 
-                        <div className="reasons-footer">
-                            {spot.reasons.map((reason, i) => (
-                                <span key={i} className="reason-tag">{reason}</span>
-                            ))}
+                <button className="sort-button" onClick={() => setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')}>
+                    Sort: {sortOrder === 'asc' ? '↑' : '↓'}
+                </button>
+            </div>
+
+            <div className="card-container">
+                {sortedData.map((spot, index) => {
+                    const safeRating = Math.min(5, Math.max(1, Math.round(spot.rating)));
+                    return (
+                        <div className="spot-card" key={index}>
+                            <h2 className="spot-title">
+                                <div className="spot-name">
+                                📍{spot.spot}
+                                </div>
+                                <div className="stars-display">
+                                    {'★'.repeat(safeRating)}{'☆'.repeat(5 - safeRating)}
+                                </div>
+                            </h2>
+                            <div className="image-container">
+                                <img src={starImages[safeRating]} alt="rating" className="rating-image" />
+                            </div>
+                            <div className="reasons-footer">
+                                {spot.reasons.map((reason, i) => (
+                                    <span key={i} className="reason-tag">{reason}</span>
+                                ))}
+                            </div>
                         </div>
-                    </div>
-                );
-            })}
+                    );
+                })}
+            </div>
         </div>
     );
 }

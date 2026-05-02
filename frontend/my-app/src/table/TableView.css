@@ -21,19 +21,6 @@
     transform: translateY(-5px);
 }
 
-.spot-title {
-    position: absolute;
-    top: 10px;
-    left: 15px;
-    margin: 0;
-    font-size: 1.2rem;
-    color: #333;
-    z-index: 2;
-    background: rgba(255, 255, 255, 0.8);
-    padding: 2px 8px;
-    border-radius: 4px;
-}
-
 .image-container {
     flex: 1;
     display: flex;
@@ -63,4 +50,105 @@
     padding: 4px 8px;
     border-radius: 12px;
     color: #555;
+}
+
+.view-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.controls {
+    padding: 0 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.sort-button {
+    background: #333;
+    color: white;
+    border: none;
+    margin-top: 15px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+    white-space: nowrap;
+}
+
+.sort-button:hover {
+    background: #555;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: #f4f4f4;
+    border-radius: 8px;
+    margin: 10px 20px;
+}
+
+.filter-group {
+    display: flex;
+    gap: 10px;
+}
+
+.filter-label {
+    color: rgb(92, 92, 92);
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px solid rgb(204, 204, 204);
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+    background: rgb(221, 221, 221);
+    user-select: none;
+}
+
+.filter-label.active {
+    background: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.filter-label input {
+    display: none;
+}
+
+
+.spot-title {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    margin: 0;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 5px 10px;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+    /* Flexbox Magic */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.spot-name {
+    font-size: 1.1rem;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 10px;
+}
+
+.stars-display {
+    color: #ffcc00;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    white-space: nowrap;
 }
