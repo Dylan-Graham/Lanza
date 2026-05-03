@@ -1,12 +1,34 @@
+from pydantic_settings import BaseSettings
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 import sqlite3
 
 from backend.dto import Forecast, ForecastRating
 from backend.util import ratings, load_spot_guide
 
+
+class Settings(BaseSettings):
+    cors_origins: list[str] = ["http://localhost:5173"]
+
+    class Config:
+        env_file = ".env"
+
+
 app = FastAPI()
+settings = Settings()
+
+print(f"Cors origins: {settings.cors_origins}")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=settings.cors_origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 spots = load_spot_guide()
+
 
 @app.get("/forecasts", response_model=list[Forecast])
 async def list_forecasts():
@@ -20,11 +42,12 @@ async def list_forecasts():
             rows = cur.fetchall()
 
             # Serialization
-            forecasts =[Forecast(**dict(row)) for row in rows]
+            forecasts = [Forecast(**dict(row)) for row in rows]
     except sqlite3.OperationalError as e:
         print(f"Error fetching data: ({e})")
 
     return forecasts
+
 
 @app.get("/ratings", response_model=list[ForecastRating])
 async def list_ratings():
@@ -38,7 +61,7 @@ async def list_ratings():
             )
             rows = cur.fetchall()
 
-            forecasts =[Forecast(**dict(row)) for row in rows]
+            forecasts = [Forecast(**dict(row)) for row in rows]
             spot_ratings = ratings(forecasts=forecasts, spots=spots)
     except sqlite3.OperationalError as e:
         print(f"Error fetching data: ({e})")
