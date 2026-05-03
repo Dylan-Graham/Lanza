@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "start-serve": "pm2 serve dist 8080 --spa --name 'lanza'",
+    "stop-serve": "pm2 stop 'lanza'",
     "lint": "eslint .",
     "preview": "vite preview"
   },
