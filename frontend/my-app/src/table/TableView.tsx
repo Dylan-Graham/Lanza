@@ -1,5 +1,4 @@
 import './TableView.css';
-import { spots } from "../spots";
 import { useState } from 'react';
 
 import star1 from '../assets/1-star.png';
@@ -8,6 +7,7 @@ import star3 from '../assets/3-star.png';
 import star4 from '../assets/4-star.png';
 import star5 from '../assets/5-star.png';
 import { useFetch } from '../hooks/useFetch';
+import type { SpotForecast, SpotRating } from '../interfaces/SpotRating';
 
 const starImages: Record<number, string> = {
     1: star1,
@@ -22,7 +22,7 @@ export function TableView() {
     const [sortOrder, setSortOrder] = useState<'asc' | 'desc' | 'none'>('none');
     const [selectedRatings, setSelectedRatings] = useState<number[]>([]);
 
-    const { data, loading, error } = useFetch("/ratings");
+    const { data, loading, error } = useFetch<SpotForecast[]>("/ratings");
 
     if (loading) {
         return <>Loading...</>
@@ -36,7 +36,7 @@ export function TableView() {
         return <>No Data</>
     }
 
-    const rawData = data[0].spot_ratings.slice(14, 32);
+    const rawData: SpotRating[] = data[0].spot_ratings.slice(14, 32) || [];
 
     const handleFilterChange = (rating: number) => {
         setSelectedRatings(prev =>
