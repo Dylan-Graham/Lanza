@@ -7,6 +7,7 @@ import star2 from '../assets/2-star.png';
 import star3 from '../assets/3-star.png';
 import star4 from '../assets/4-star.png';
 import star5 from '../assets/5-star.png';
+import { useFetch } from '../hooks/useFetch';
 
 const starImages: Record<number, string> = {
     1: star1,
@@ -21,7 +22,21 @@ export function TableView() {
     const [sortOrder, setSortOrder] = useState<'asc' | 'desc' | 'none'>('none');
     const [selectedRatings, setSelectedRatings] = useState<number[]>([]);
 
-    const rawData = spots[0].spot_ratings.slice(14, 32);
+    const { data, loading, error } = useFetch("/ratings");
+
+    if (loading) {
+        return <>Loading...</>
+    }
+
+    if (error) {
+        return <>Server Error: Unable to retrieve data</>
+    }
+
+    if (data == null) {
+        return <>No Data</>
+    }
+
+    const rawData = data[0].spot_ratings.slice(14, 32);
 
     const handleFilterChange = (rating: number) => {
         setSelectedRatings(prev =>
@@ -71,7 +86,7 @@ export function TableView() {
                         <div className="spot-card" key={index}>
                             <h2 className="spot-title">
                                 <div className="spot-name">
-                                📍{spot.spot}
+                                    📍{spot.spot}
                                 </div>
                                 <div className="stars-display">
                                     {'★'.repeat(safeRating)}{'☆'.repeat(5 - safeRating)}
