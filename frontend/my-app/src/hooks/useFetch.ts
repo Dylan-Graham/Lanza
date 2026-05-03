@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
-const BASE_URL = import.meta.env.VITE_API_BASE
+const BASE_URL = import.meta.env.VITE_API_BASE;
+
 export const useFetch = <T,>(endpoint: string) => {
     const [data, setData] = useState<T | null>(null);
     const [loading, setLoading] = useState(true);
