@@ -49,6 +49,27 @@ async def list_forecasts():
     return forecasts
 
 
+@app.get("/top-spots", response_model=list[ForecastRating])
+async def top_spots():
+    try:
+        with sqlite3.connect("../data-ingestion/forecast.db") as conn:
+            conn.row_factory = sqlite3.Row
+            cur = conn.cursor()
+            cur.execute(
+                "select time, wave_height, wave_direction, wave_period, wind_speed, wind_gust, wind_direction, cloud_coverage, precipitation, air_temperature from forecast LIMIT 24"
+            )
+            rows = cur.fetchall()
+
+            forecasts = [Forecast(**dict(row)) for row in rows]
+            spot_ratings = ratings(forecasts=forecasts, spots=spots)
+            for fr in spot_ratings:
+                fr.spot_ratings = sorted(fr.spot_ratings, key=lambda s: s.rating, reverse=True)[:5]
+    except sqlite3.OperationalError as e:
+        print(f"Error fetching data: ({e})")
+
+    return spot_ratings
+
+
 @app.get("/ratings", response_model=list[ForecastRating])
 async def list_ratings():
     try:
