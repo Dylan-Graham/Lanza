@@ -59,7 +59,7 @@ export function TopSpotsView() {
                         <span className="spot-rank">#{i + 1}</span>
                         <div className="spot-info">
                             <div className="spot-name">📍 {spot}</div>
-                            <div className="spot-reasons">{reasons.join(' · ')}</div>
+                            <div className="spot-reasons">{reasons.map(r => <div key={r}>{r}</div>)}</div>
                         </div>
                         <div className="spot-score">
                             <div className="score-value">{rating.toFixed(1)}</div>

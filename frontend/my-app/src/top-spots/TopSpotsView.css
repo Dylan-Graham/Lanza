@@ -59,6 +59,7 @@
 
 .spot-info {
     flex: 1;
+    min-width: 0;
 }
 
 .spot-name {
@@ -70,6 +71,19 @@
     font-size: 12px;
     color: #888;
     margin-top: 4px;
+}
+
+@media (max-width: 480px) {
+    .spot-name {
+        font-weight: 700;
+        font-size: 12px;
+    }
+
+    .spot-reasons {
+        font-size: 10px;
+        color: #888;
+        margin-top: 4px;
+    }
 }
 
 .spot-score {
