@@ -10,7 +10,17 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-top: 20px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 12px 16px;
+    background: #111;
+    border-top: 1px solid #333;
+}
+
+.top-spots-wrapper {
+    padding-bottom: 72px;
 }
 
 .top-spots-controls input[type="range"] {
